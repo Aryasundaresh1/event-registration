@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vidyuth Fest 2025</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loader">
+    <div class="spinner"></div>
+    <p>Loading Fest 2025...</p>
+  </div>
+
+  <!-- Main Content -->
+  <div id="mainContent" class="hidden">
+    <header class="slide-in">
+      <h1 class="highlight-heading">vidyuth Fest 2025</h1>
+      <p class="highlight-sub">Countdown to the Big Day: <span id="countdown"></span></p>
+    </header>
+
+    <div class="button-container">
+      <a href="register.html" class="animated-btn pulse shimmer">🎉 Register Now 🎉</a>
+    </div>
+
+    <section id="about" class="fade-in delay-1 highlight-section">
+      <h2>About the Fest</h2>
+      <p>COE Fest is the annual celebration of innovation, creativity, and talent at the College of Engineering. Join us for a mix of technical and cultural events!</p>
+    </section>
+
+    <section id="events" class="fade-in delay-2 highlight-section">
+      <h2>Events</h2>
+      <ul>
+        <li><strong>CodeSprint:</strong> Competitive coding challenge.</li>
+        <li><strong>Robowars:</strong> Robot battle showdown.</li>
+        <li><strong>Battle of Bands:</strong> Cultural music event.</li>
+      </ul>
+    </section>
+
+    <section id="schedule" class="fade-in delay-3 highlight-section">
+      <h2>Schedule</h2>
+      <p>Day 1: CodeSprint - 10 AM<br>Day 2: Robowars - 12 PM<br>Day 3: Cultural Night - 6 PM</p>
+    </section>
+
+    <section id="contact" class="fade-in delay-4 highlight-section">
+      <h2>Contact Us</h2>
+      <p>Email: coefest@college.edu | Phone: +91-9876543210</p>
+    </section>
+
+    <footer class="fade-in delay-5">
+      <p>&copy; 2025 COE Fest. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    // Fixing typo here: "window" instead of "2>dow"
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        document.getElementById("loader").style.display = "none";
+        document.getElementById("mainContent").classList.remove("hidden");
+      }, 2000);
+    });
+  
+    const countdown = document.getElementById("countdown");
+    const eventDate = new Date("June 10, 2025 10:00:00").getTime();
+  
+    setInterval(() => {
+      const now = new Date().getTime();
+      const diff = eventDate - now;
+  
+      if (diff <= 0) {
+        countdown.innerText = "It's Here!";
+        return;
+      }
+  
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const mins = Math.floor((diff / (1000 * 60)) % 60);
+      const secs = Math.floor((diff / 1000) % 60);
+  
+      countdown.innerText = `${days}d ${hours}h ${mins}m ${secs}s`;
+    }, 1000);
+  </script>
+  
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #123458, #1b2d4a, #0a0a0a);
+      color: #F1EFEC;
+    }
+
+    #loader {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #030303;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .spinner {
+      border: 8px solid #f3f3f3;
+      border-top: 8px solid #D4C9BE;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .hidden { display: none; }
+
+    header, section, footer {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .highlight-heading {
+      font-size: 3.5em;
+      color: #F1EFEC;
+      text-shadow: 0 0 15px #fff, 0 0 30px #D4C9BE;
+      animation: bounceIn 1.2s ease forwards;
+    }
+
+    .highlight-sub {
+      color: #D4C9BE;
+      font-size: 1.2em;
+      text-shadow: 0 0 10px rgba(255,255,255,0.3);
+    }
+
+    .highlight-section {
+      background-color: rgba(244, 241, 239, 0.05);
+      border-radius: 15px;
+      margin: 20px;
+      padding: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+    .delay-1 { animation-delay: 0.5s; }
+    .delay-2 { animation-delay: 1s; }
+    .delay-3 { animation-delay: 1.5s; }
+    .delay-4 { animation-delay: 2s; }
+    .delay-5 { animation-delay: 2.5s; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .slide-in {
+      animation: slideIn 1s ease-in-out forwards;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes bounceIn {
+      0% { transform: scale(0.5); opacity: 0; }
+      60% { transform: scale(1.2); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 30px 0;
+    }
+
+    .animated-btn {
+      background: linear-gradient(135deg, #F1EFEC, #FFB6B9);
+      color: #030303;
+      border: none;
+      padding: 16px 40px;
+      font-size: 22px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 60px;
+      text-decoration: none;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    }
+
+    .animated-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.3);
+      transition: left 0.5s ease;
+    }
+
+    .animated-btn:hover::before {
+      left: 100%;
+    }
+
+    .animated-btn:hover {
+      background: #fce4ec;
+      color: #123458;
+      transform: scale(1.1);
+    }
+
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+      100% { transform: scale(1); }
+    }
+
+    .shimmer {
+      animation: shimmer 2.5s infinite;
+    }
+
+    @keyframes shimmer {
+      0% {
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+      }
+      50% {
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+      }
+      100% {
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+      }
+    }
+  </style>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register - COE Fest 2025</title>
+  <link rel="stylesheet" href="register.css"/>
+</head>
+<body>
+  <canvas id="confetti-canvas"></canvas>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.querySelector("form");
+      const button = form.querySelector("button");
+  
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
+  
+        // Basic validation: check if all required inputs are filled
+        const inputs = form.querySelectorAll("input, select");
+        let allFilled = true;
+  
+        inputs.forEach(input => {
+          if (!input.value.trim()) {
+            allFilled = false;
+            input.style.border = "2px solid red"; // highlight empty fields
+          } else {
+            input.style.border = "none"; // reset valid ones
+          }
+        });
+  
+        if (allFilled) {
+          // Show confetti
+          confetti({
+            particleCount: 150,
+            spread: 70,
+            origin: { y: 0.6 }
+          });
+  
+          // Optional: delay actual submission to show confetti
+          setTimeout(() => {
+            form.submit();
+          }, 500);
+        } else {
+          alert("Please fill out all fields before registering!");
+        }
+      });
+    });
+  </script>
+  
+
+
+  <div class="container">
+    <h1>Register for COE Fest 2025</h1>
+    <form id="registrationForm">
+      <input type="text" placeholder="Full Name" required />
+      <input type="email" placeholder="Email" required />
+      <input type="text" placeholder="Phone Number" required />
+      <input type="text" placeholder="Department" required />
+      <select required>
+        <option value="">Choose Your Event</option>
+        <option value="CodeSprint">Dance</option>
+        <option value="RoboWars">Beatboxing</option>
+        <option value="Battle of Bands">Battle of Bands</option>
+      </select>
+      <button type="submit">Submit Registration</button>
+    </form>
+  </div>
+
+  <script src="confetti.js"></script>
+  <script>
+    // Stop confetti after 5 seconds
+    setTimeout(() => {
+      confetti.stop();
+    }, 5000);
+  </script>
+</body>
+</html>
